@@ -10,7 +10,9 @@ import cn.stylefeng.guns.core.common.node.ZTreeNode;
 import cn.stylefeng.guns.core.common.page.LayuiPageFactory;
 import cn.stylefeng.guns.core.listener.ConfigListener;
 import cn.stylefeng.guns.modular.system.entity.Menu;
+import cn.stylefeng.guns.modular.system.entity.Relation;
 import cn.stylefeng.guns.modular.system.mapper.MenuMapper;
+import cn.stylefeng.guns.modular.system.mapper.RelationMapper;
 import cn.stylefeng.guns.modular.system.model.MenuDto;
 import cn.stylefeng.roses.core.util.ToolUtil;
 import cn.stylefeng.roses.kernel.model.exception.RequestEmptyException;
@@ -39,7 +41,8 @@ public class MenuService extends ServiceImpl<MenuMapper, Menu> {
 
     @Resource
     private MenuMapper menuMapper;
-
+    @Resource
+    private RelationMapper relationMapper;
     /**
      * 添加菜单
      *
@@ -65,6 +68,10 @@ public class MenuService extends ServiceImpl<MenuMapper, Menu> {
         resultMenu.setStatus(MenuStatus.ENABLE.getCode());
 
         this.save(resultMenu);
+        Relation relation=new Relation();
+        relation.setMenuId(resultMenu.getMenuId());
+        relation.setRoleId(1L);
+        relationMapper.insert(relation);
     }
 
     /**
