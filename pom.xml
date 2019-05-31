@@ -11,11 +11,11 @@
     </parent>
 
     <groupId>cn.stylefeng</groupId>
-    <artifactId>guns</artifactId>
+    <artifactId>hy-j</artifactId>
     <version>1.0.0</version>
 
-    <name>guns-admin</name>
-    <description>guns 的spring boot版本</description>
+    <name>hy-admin</name>
+    <description>hy 的spring boot版本</description>
 
     <packaging>jar</packaging>
 
